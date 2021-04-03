@@ -62,6 +62,21 @@ data "testing_assertions" "null_name" {
       },
     ])
   }
+
+  equal "networks_by_name" {
+    statement = "has the expected networks"
+
+    got = module.null_name.networks_by_name
+    want = tomap({
+      bar = {
+        ipv4_cidr_block = "10.1.0.0/16"
+        ipv6_cidr_block = tostring(null)
+        name            = "bar"
+        ipv4_new_bits   = 8
+        ipv6_new_bits   = 0
+      },
+    })
+  }
 }
 
 output "null_name" {

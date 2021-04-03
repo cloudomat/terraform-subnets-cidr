@@ -16,4 +16,5 @@ locals {
     ipv4_cidr_block = n.name != null ? local.addrs_by_idx[i] : tostring(null)
     ipv6_cidr_block = n.name != null && local.has_ipv6 ? local.ipv6_addrs_by_idx[i] : tostring(null)
   }]
+  networks_by_name = { for i, n in var.networks : n.name => local.network_objs[i] if n.name != null }
 }

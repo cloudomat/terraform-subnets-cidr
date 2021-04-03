@@ -103,6 +103,49 @@ data "testing_assertions" "simple_ipv6" {
       },
     ])
   }
+
+  equal "networks_by_name" {
+    statement = "has the expected networks"
+
+    got = module.simple_ipv6.networks_by_name
+    want = tomap({
+      foo = {
+        ipv4_cidr_block = "10.0.0.0/16"
+        ipv6_cidr_block = "2001:db8::/64"
+        name            = "foo"
+        ipv4_new_bits   = 8
+        ipv6_new_bits   = 32
+      },
+      bar = {
+        ipv4_cidr_block = "10.1.0.0/16"
+        ipv6_cidr_block = "2001:db8:0:1::/64"
+        name            = "bar"
+        ipv4_new_bits   = 8
+        ipv6_new_bits   = 32
+      },
+      baz = {
+        ipv4_cidr_block = "10.16.0.0/12"
+        ipv6_cidr_block = "2001:db8:0:10::/60"
+        name            = "baz"
+        ipv4_new_bits   = 4
+        ipv6_new_bits   = 28
+      },
+      beep = {
+        ipv4_cidr_block = "10.32.0.0/16"
+        ipv6_cidr_block = "2001:db8:0:20::/64"
+        name            = "beep"
+        ipv4_new_bits   = 8
+        ipv6_new_bits   = 32
+      },
+      boop = {
+        ipv4_cidr_block = "10.33.0.0/16"
+        ipv6_cidr_block = "2001:db8:0:21::/64"
+        name            = "boop"
+        ipv4_new_bits   = 8
+        ipv6_new_bits   = 32
+      },
+    })
+  }
 }
 
 output "simple_ipv6" {

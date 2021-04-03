@@ -100,6 +100,49 @@ data "testing_assertions" "simple" {
       },
     ])
   }
+
+  equal "networks_by_name" {
+    statement = "has the expected networks"
+
+    got = module.simple.networks_by_name
+    want = tomap({
+      foo = {
+        ipv4_cidr_block = "10.0.0.0/16"
+        ipv6_cidr_block = tostring(null)
+        name            = "foo"
+        ipv4_new_bits   = 8
+        ipv6_new_bits   = 0
+      },
+      bar = {
+        ipv4_cidr_block = "10.1.0.0/16"
+        ipv6_cidr_block = tostring(null)
+        name            = "bar"
+        ipv4_new_bits   = 8
+        ipv6_new_bits   = 0
+      },
+      baz = {
+        ipv4_cidr_block = "10.16.0.0/12"
+        ipv6_cidr_block = tostring(null)
+        name            = "baz"
+        ipv4_new_bits   = 4
+        ipv6_new_bits   = 0
+      },
+      beep = {
+        ipv4_cidr_block = "10.32.0.0/16"
+        ipv6_cidr_block = tostring(null)
+        name            = "beep"
+        ipv4_new_bits   = 8
+        ipv6_new_bits   = 0
+      },
+      boop = {
+        ipv4_cidr_block = "10.33.0.0/16"
+        ipv6_cidr_block = tostring(null)
+        name            = "boop"
+        ipv4_new_bits   = 8
+        ipv6_new_bits   = 0
+      },
+    })
+  }
 }
 
 output "simple" {

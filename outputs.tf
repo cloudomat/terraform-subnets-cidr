@@ -8,6 +8,11 @@ output "ipv6_network_cidr_blocks" {
   description = "A map from network names to allocated address prefixes in CIDR notation."
 }
 
+output "networks_by_name" {
+  value       = tomap(local.networks_by_name)
+  description = "A map from network names to network objects with ipv4_cidr_block and ipv6_cidr_block attributes."
+}
+
 output "networks" {
   value       = tolist(local.network_objs)
   description = "A list of objects corresponding to each of the objects in the input variable 'networks', each extended with 'ipv4_cidr_block' and 'ipv6_cidr_block' giving the network's allocated address prefix."
