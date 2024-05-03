@@ -1,7 +1,3 @@
-terraform {
-  required_version = ">= 1.3"
-}
-
 locals {
   has_ipv6           = var.ipv6_base_cidr_block != "" && var.ipv6_base_cidr_block != null
   addrs_by_idx       = cidrsubnets(var.ipv4_base_cidr_block, var.networks[*].ipv4_new_bits...)
