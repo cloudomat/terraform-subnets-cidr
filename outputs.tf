@@ -22,3 +22,8 @@ output "ipv4_base_cidr_block" {
   value       = var.ipv4_base_cidr_block
   description = "Echoes back the ipv4_base_cidr_block input variable value, for convenience if passing the result of this module elsewhere as an object."
 }
+
+output "ipv6_base_cidr_block" {
+  value       = var.ipv6_base_cidr_block
+  description = "An IPv6 network address prefix in CIDR notation that all of the requested subnetwork prefixes will be allocated within."
+}
