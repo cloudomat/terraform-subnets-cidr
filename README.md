@@ -3,7 +3,7 @@
 This is a simple Terraform module for calculating subnet addresses under a
 particular CIDR prefix.
 
-**This module requires Terraform v0.12.10 or later.**
+**This module requires Terraform v1.3 or later.**
 
 ```hcl
 module "subnet_addrs" {
