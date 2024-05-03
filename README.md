@@ -7,7 +7,7 @@ particular CIDR prefix.
 
 ```hcl
 module "subnet_addrs" {
-  source = "hashicorp/subnets/cidr"
+  source = "cloudomat/cidr/subnets"
 
   base_cidr_block = "10.0.0.0/8"
   networks = [
@@ -83,7 +83,7 @@ occupied in the address space:
 
 ```hcl
 module "subnet_addrs" {
-  source = "hashicorp/subnets/cidr"
+  source = "cloudomat/cidr/subnets"
 
   base_cidr_block = "10.0.0.0/8"
   networks = [
@@ -195,7 +195,7 @@ context, but the names must agree between the declaration and the references.
 
 ```hcl
 module "subnet_addrs" {
-  source = "hashicorp/subnets/cidr"
+  source = "cloudomat/cidr/subnets"
 
   base_cidr_block = "10.0.0.0/16"
   networks = [
@@ -228,7 +228,7 @@ resource "alicloud_vswitch" "example" {
 
 ```hcl
 module "subnet_addrs" {
-  source = "hashicorp/subnets/cidr"
+  source = "cloudomat/cidr/subnets"
 
   base_cidr_block = "10.0.0.0/16"
   networks = [
@@ -260,7 +260,7 @@ resource "aws_subnet" "example" {
 
 ```hcl
 module "subnet_addrs" {
-  source = "hashicorp/subnets/cidr"
+  source = "cloudomat/cidr/subnets"
 
   base_cidr_block = "10.0.0.0/16"
   networks = [
@@ -301,7 +301,7 @@ resource "azurerm_virtual_network" "example" {
 
 ```hcl
 module "subnet_addrs" {
-  source = "hashicorp/subnets/cidr"
+  source = "cloudomat/cidr/subnets"
 
   base_cidr_block = "10.0.0.0/16"
   networks = [
@@ -359,7 +359,7 @@ result into the CIDR Subnets Module:
 
 ```hcl
 module "subnet_addrs" {
-  source = "hashicorp/subnets/cidr"
+  source = "cloudomat/cidr/subnets"
 
   base_cidr_block = "10.0.0.0/16"
   networks = [
